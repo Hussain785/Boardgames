@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-rose-50 text-rose-900 font-sans antialiased;
+    background-image: theme("backgroundImage.romantic-gradient");
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .dark body {
+    @apply bg-[#1a0814] text-rose-100;
+    background-image: theme("backgroundImage.romantic-dark");
+  }
+  ::selection {
+    background-color: theme("colors.rose.300");
+    color: theme("colors.rose.900");
+  }
+  .dark ::selection {
+    background-color: theme("colors.rose.700");
+    color: theme("colors.rose.50");
+  }
+  /* nicer focus rings */
+  :focus-visible {
+    outline: 2px solid theme("colors.rose.500");
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/60 shadow-soft;
+  }
+  .dark .glass {
+    @apply bg-white/5 border-white/10 shadow-glow;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full font-medium text-sm transition-all duration-300 select-none active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+  }
+  .btn-primary {
+    @apply btn text-white shadow-soft;
+    background-image: linear-gradient(135deg, #ff6b9c 0%, #e62168 100%);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px -12px rgba(255, 61, 127, 0.55);
+  }
+  .btn-ghost {
+    @apply btn text-rose-700 hover:bg-rose-100/60;
+  }
+  .dark .btn-ghost {
+    @apply text-rose-100 hover:bg-white/10;
+  }
+  .btn-outline {
+    @apply btn border border-rose-300 text-rose-700 hover:bg-rose-100/60;
+  }
+  .dark .btn-outline {
+    @apply border-rose-400/30 text-rose-100 hover:bg-white/5;
+  }
+  .input {
+    @apply w-full rounded-2xl border border-rose-200 bg-white/80 px-4 py-3 text-rose-900 placeholder:text-rose-400/70 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-200/60 transition;
+  }
+  .dark .input {
+    @apply border-white/10 bg-white/5 text-rose-50 placeholder:text-rose-200/40 focus:border-rose-300/50 focus:ring-rose-500/20;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-[0.18em] text-rose-500 mb-2;
+  }
+  .dark .label {
+    @apply text-rose-300/80;
+  }
+  .card {
+    @apply rounded-3xl glass p-6 sm:p-8;
+  }
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #ff6b9c 0%, #e62168 60%, #b4126b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Letter paper */
+.paper {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 246, 250, 0.95)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 31px,
+      rgba(230, 33, 104, 0.1) 31px,
+      rgba(230, 33, 104, 0.1) 32px
+    );
+  box-shadow:
+    0 30px 60px -20px rgba(230, 33, 104, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+  border-radius: 18px;
+}
+.dark .paper {
+  background:
+    linear-gradient(180deg, rgba(40, 14, 28, 0.85), rgba(60, 18, 40, 0.85)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 31px,
+      rgba(255, 156, 196, 0.12) 31px,
+      rgba(255, 156, 196, 0.12) 32px
+    );
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
