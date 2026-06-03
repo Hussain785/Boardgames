@@ -14,6 +14,7 @@ Lovelink is a static, client-only React SPA for composing and sharing long-dista
 |---------|---------|------|-------|
 | Vite dev server | `npm run dev` | 5173 | Primary development server with HMR |
 | Vite preview | `npm run preview` | 4173 (default) | Serves production build from `dist/` after `npm run build` |
+| PlayVerse games | `npm run dev` → `/games` | 5173 | Telegram Mini App game hub (PeerJS online rooms) |
 
 Only one static server is required. No Docker, database, or backend services exist.
 

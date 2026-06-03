@@ -31,6 +31,7 @@ export default function Navbar() {
           <NavItem to="/">Home</NavItem>
           <NavItem to="/compose">Write a letter</NavItem>
           <NavItem to="/about">About</NavItem>
+          <NavItem to="/games">PlayVerse</NavItem>
         </div>
 
         <div className="flex items-center gap-2">

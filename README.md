@@ -124,3 +124,15 @@ src/
    before you talk yourself out of how much you mean it.
 
 Made with 💖 for the ones who love across the miles.
+
+## 🎮 PlayVerse — Telegram Mini Games
+
+Open **`/games`** for the PlayVerse hub: 15+ mini games with light/dark theme, touch controls, and online rooms (create a code → invite a friend via Telegram share).
+
+**Telegram Mini App:** host the built `dist/` and set your bot’s Web App URL to your deployed `/games` route.
+
+```bash
+npm run dev
+# → http://localhost:5173/games
+```
+
